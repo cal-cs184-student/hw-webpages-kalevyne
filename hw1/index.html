@@ -48,7 +48,7 @@
 		-->
 
 		<h2>Overview</h2>
-		TODO: Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
+		In this project, implemented triangular rasterization beginning with just single color triangles, antialiasing via supersampling, geometric transforms, barycentric color interpolation, texture mapping with nearest and bilinear sampling, and mipmap-based level sampling. Triangles are rasterized using bounding boxes, and supersampling and bilinear filtering reduce jagged edges and smooth textures. Barycentric coordinates allowed for smooth color interpolation across triangles, while texture mapping and mipmaps handle detailed textures with minimal aliasing. 
 
 		<h2>Task 1: Drawing Single-Color Triangles</h2>
 		To draw a single-color triangle, rasterization is used. In this process, three coordinates are given in space, creating a triangle. Connecting these three coordinates creates three different half-planes. Depending on the direction of traversal of the three lines (either clockwise or counter clockwise), a point within or on the boundary of the triangle will have either all nonnegative or all nonpositive values for the dot product of the vector to that point and the normal of each line. I rasterized triangles by iterating through pixels and evaluating whether the pixel was within the triangle or not, filling in each one that was. 
@@ -154,21 +154,21 @@
 			  <tr>
 				<td style="text-align: center;">
 				  <img src="t5_texmap6_n1.png" width="400px"/>
-				  <figcaption>Sampling Rate = 1</figcaption>
+				  <figcaption>Nearest, 1 </figcaption>
 				</td>
 				<td style="text-align: center;">
 				  <img src="t5_texmap6_b1.png" width="400px"/>
-				  <figcaption>Sampling Rate = 2</figcaption>
+				  <figcaption>Bilinear, 1</figcaption>
 				</td>
 			  </tr>
 			  <tr>
 				<td style="text-align: center;">
 				  <img src="t5_texmap6_n16.png" width="400px"/>
-				  <figcaption>Sampling Rate = 3</figcaption>
+				  <figcaption>Nearest, 16</figcaption>
 				</td>
 				<td style="text-align: center;">
 				  <img src="t5_texmap6_b16.png" width="400px"/>
-				  <figcaption>Sampling Rate = 4</figcaption>
+				  <figcaption>Bilinear, 16</figcaption>
 				</td>
 			  </tr>
 			</table>
@@ -177,21 +177,37 @@
 		When texture space is magnified or has a lot of detail, there will be a large difference in the methods. Especially if there is high frequency data, nearest vs. bilinear may produce different results. Nearest may have more abrupt singular texels while	bilinear will be much smoother due to the blending of neighboring texels. 	</p>
 
 		<h2>Task 6: "Level Sampling" with mipmaps for texture mapping</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-		<h2>(Optional) Task 7: Extra Credit - Draw Something Creative!</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-		<h2>Additional Notes (please remove)</h2>
-		<ul>
-			<li>You can also add code if you'd like as so: <code>code code code</code></li>
-			<li>If you'd like to add math equations, 
-				<ul>
-					<li>You can write inline equations like so: \( a^2 + b^2 = c^2 \)</li>
-					<li>You can write display equations like so: \[ a^2 + b^2 = c^2 \]</li>
-				</ul>
-			</li>
-		</ul>
+		Level sampling creates different representations of an image and determines how detailed those representations should be. To implement level sampling, mipmaps are used. Mipmaps have decreasing dimensions in order to better match when pixels cover many texels, reducing aliasing. 
+		<p>
+			Using a running clock for rasterization, nearest pixel sampling, level zero sampling, and one sample per pixel is the fastest. It uses less memory, but has worse quality. Using linear pixel sampling uses the same amount of memory, but is slower as more texels are fetched for each pixel. This results in smoother texture. Nearest and Linear level sampling are also slower as they use more mip levels, but result in better antialiasing. Finally, supersampling s down rasterization, increases memory usage, but results in extremely good antialiasing improvement. 
+		</p>
+		<p>
+			Below is an image of me and my family using different combinations of sampling at 1 sample per pixel. Notice that the more expensive methods result in generally smoother images. 
+		</p>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="t6_L0_PN.png" width="400px"/>
+				  <figcaption>Level zero, nearest pixel</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="t6_L0_PL.png" width="400px"/>
+				  <figcaption>Level zero, linear pixel</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="t6_LN_PN.png" width="400px"/>
+				  <figcaption>Nearest level, nearest pixel</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="t6_LN_PL.png" width="400px"/>
+				  <figcaption>Nearest level, linear pixel</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 		</div>
 	</body>
 </html>
