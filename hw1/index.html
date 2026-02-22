@@ -118,7 +118,28 @@
 		<figure><img src="t3_my_robot.png" width="400px"/></figure>
 
 		<h2>Task 4: Barycentric coordinates</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Barycentric coordinates use a method of extrapolating by representing a point in space as a weighted average of vertices from a triangle. In the below image, a triangle is drawn using three vertices with three different colors. At each point, a color is assigned by the corresponding barycentric coordinates. 
+		<figure>
+			<img src="t4_basic9.png" style="width:50%"/>
+			<figcaption>svg/basic/test9.svg triangle</figcaption>
+		</figure>
+		<p> 	
+		The artifact in the left image is a result of sample points landing on edges, being classified as outside the triangle, and not being assigned a color value. To fix this, doubles were used for more precise edge calculations and a consistent tiebreaker was implemented. 
+		</p>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="t4_basic7.png" width="400px"/>
+				  <figcaption>svg/basic/test7.svg with artifact </figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="t4_basic7-3.png" width="400px"/>
+				  <figcaption>svg/basic/test7.svg</figcaption>
+				</td>";
+			  </tr>
+			</table>
+		</div>
 
 		<h2>Task 5: "Pixel sampling" for texture mapping</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
