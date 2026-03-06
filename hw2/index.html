@@ -111,7 +111,21 @@
 		<h2>Section II: Triangle Meshes and Half-Edge Data Structure</h2>
 
 		<h3>Part 3: Area-weighted vertex normals</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Area-weighted vertex normals were calculated in order to implement Phong shading, improving shading as shown below. By iterating through the half-edges around a given vertex and calculating the area-weighted normal of each corresponding non-boundary face, the normalized sum of area-weighted vertex normals was calculated. 
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="S2P3-1.png" width="400px"/>
+				  <figcaption>Flat shaded teapot</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="S2P3-2.png" width="400px"/>
+				  <figcaption>Phong shaded teapot</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 
 		<h3>Part 4: Edge flip</h3>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
