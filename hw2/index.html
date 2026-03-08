@@ -169,9 +169,9 @@
 		
 		<h3>Part 6: Loop subdivision for mesh upsampling</h3>
 		Mesh upsampling is used to increase fineness in a mesh, whether for more accurate simulations or a more smooth image. Loop subdivision was implemented as a method for mesh upsampling, using edge flipping and splitting to subdivide each triangular mesh face to four smaller, triangular mesh faces. 
-		<br>
+		<br><br>
 		Using the provided framework, I determined the old and new vertex positions before adding new edges, performed upsampling using edge splitting and flipping, then committing the vertex positions using the pre-determined values. This implementation is simpler and cheaper, as traversing through a coarser mesh requires fewer objects and operations. 
-		<br>
+		<br><br>
 		Loop subdivision is a smoothing operation, so any sharp corners are quickly erased and rounded. However, as shown with the cube on the left, while the cube is symmetrical at first, the orientation of the mesh results in an assymetric upsampled cube. While exploring the provided .dae files, I found the cube to be the easiest example to use to discover the loop subdivision behavior. Pre-splitting each edge on the square face results in the faces around that edge to be smoothed less. This results in a pillowed cube. Interestingly, using edge flipping to convert opposite square face edges to have opposite orientation results in a chair-like cyclohexane structure seen in chemistry. 
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
