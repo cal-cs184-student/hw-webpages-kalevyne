@@ -43,7 +43,9 @@
 		-->
 
 		<h2>Overview</h2>
-		TODO: Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
+		In Homework 2, I implemented Bezier curves and basic remeshing operations used in computer graphics. Using the de Casteljau recursive interpolation algorithm to evaluate smooth curves from control points and extending the same idea in two dimensions to create Bezier surfaces. I then worked with triangle meshes and the half-edge data structure, implementing area-weighted vertex normals to support Phong shading and produce smoother lighting across surfaces. I implemented fundamental remeshing operations including edge flips and edge splits, which modify mesh connectivity while maintaining constant-time operations, and loop subdivision for mesh upsampling, combining edge splitting, edge flipping, and vertex position updates to generate smoother and more detailed meshes from coarse geometry.
+		<br><br>
+		I enjoyed working with the half-edge data structure because of the interesting properties it has. I like to think about how to make systems more efficient, and the implementation of the half-edge data structure seems more complex than necessary, but upon use is surprisingly clean. Overall, this assignment strengthened my understanding of how smooth geometry is represented, manipulated, and rendered efficiently at a lower level. 
 
 		<h2>Section I: Bezier Curves and Surfaces</h2>
 		<figure>
