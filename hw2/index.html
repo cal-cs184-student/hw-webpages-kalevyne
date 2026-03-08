@@ -117,7 +117,7 @@
 		<h2>Section II: Triangle Meshes and Half-Edge Data Structure</h2>
 
 		<h3>Part 3: Area-weighted vertex normals</h3>
-		Area-weighted vertex normals were calculated in order to implement Phong shading, improving shading as shown below. By iterating through the half-edges around a given vertex and calculating the area-weighted normal of each corresponding non-boundary face, the normalized sum of area-weighted vertex normals was calculated. 
+		Area-weighted vertex normals were calculated in order to implement Phong shading, improving smoothing as shown below. By iterating through the half-edges around a given vertex and calculating the area-weighted normal of each corresponding non-boundary face, the normalized sum of area-weighted vertex normals was calculated. 
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
@@ -134,7 +134,7 @@
 		</div>
 
 		<h3>Part 4: Edge flip</h3>
-		An edge flip is a remeshing operation that takes constant time, changing the orientation of an edge between two triangles. Each triangle has a third vertex that isn't part of the edge. The edge flip transforms the edge to be connecting those two third vertices.
+		An edge flip is a remeshing operation that takes constant time, changing the orientation of an edge between two triangles. Each triangle has a third vertex that isn't part of the edge. The edge flip transforms the edge to be connecting those two third vertices. My debugging journey was quite short; using a comprehensive check aside a drawing of the before and after states helped with understanding. 
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
@@ -151,8 +151,22 @@
 		</div>
 		
 		<h3>Part 5: Edge split</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+		An edge split is a remeshing operation that takes constant time, adding a vertex and resulting in splitting of each of the two triangles on the edge. The edge split creates a vertex at the midpoint of the edge, then connects each triangle's third vertex to the newly created vertex. 
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="S2P5-1.png" width="400px"/>
+				  <figcaption>Original torus with Phong shading</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="S2P5-2.png" width="400px"/>
+				  <figcaption>Torus with edge splits and Phong shading</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+		
 		<h3>Part 6: Loop subdivision for mesh upsampling</h3>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
