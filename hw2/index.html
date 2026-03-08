@@ -28,20 +28,15 @@
 	<body>
 		<div class="container">
 		<h1>CS184/284A Spring 2025 Homework 2 Write-Up</h1>
-		<div style="text-align: center;">Names: </div>
+		<div style="text-align: center;">Calvin Lee</div>
 
 		<br>
 
-		Link to webpage: (TODO) <a href="https://cal-cs184-student.github.io/hw-webpages-kalevyne/">cal-cs184-student.github.io/hw-webpages-kalevyne/</a>
+		Link to webpage: <a href="https://cal-cs184-student.github.io/hw-webpages-kalevyne/">cal-cs184-student.github.io/hw-webpages-kalevyne/</a>
 
 		<br>
 		
-		Link to GitHub repository: (TODO) <a href="https://github.com/cal-cs184-student/hw-webpages-kalevyne/tree/main">github.com/cal-cs184-student/hw-webpages-kalevyne/tree/main</a>
-
-		<figure>
-			<img src="teapot.png" alt="Teapot" style="width:50%"/>
-			<figcaption>TODO ADD COOL IMAGEYou can add images with captions!</figcaption>
-		</figure>
+		Link to GitHub repository: <a href="https://github.com/cal-cs184-student/hw-webpages-kalevyne/tree/main">github.com/cal-cs184-student/hw-webpages-kalevyne/tree/main</a>
 
 		<!--
 		We've already added one heading per part, to make your write-up as navigable when grading. Please fit your write-up within these sections!
@@ -175,18 +170,14 @@
 		Loop subdivision is a smoothing operation, so any sharp corners are quickly erased and rounded. However, as shown with the cube on the left, while the cube is symmetrical at first, the orientation of the mesh results in an assymetric upsampled cube. While exploring the provided .dae files, I found the cube to be the easiest example to use to discover the loop subdivision behavior. Pre-splitting each edge on the square face results in the faces around that edge to be smoothed less. This results in a pillowed cube. Interestingly, using edge flipping to convert opposite square face edges to have opposite orientation results in a chair-like cyclohexane structure seen in chemistry. 
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
-			  <tr>
-				<td style="text-align: center;">
-				  <img src="S2P6-1-cube.png" width="400px"/>
-				  <figcaption>Upsampled cube</figcaption>
-				</td>
-			  </tr>
-			  <tr>
-				<td style="text-align: center;">
-				  <img src="S2P6-2-cube.png" width="400px"/>
-				  <figcaption>Upsampled cube with pre-split edges</figcaption>
-				</td>
-			  </tr>
+		<figure>
+			<img src="S2P6-1-cube.png" alt="Teapot1" style="width:50%"/>
+			<figcaption>Upsampled cube</figcaption>
+		</figure>
+		<figure>
+			<img src="S2P6-2-cube.png" alt="Teapot1" style="width:50%"/>
+			<figcaption>Upsampled cube with pre-split edges</figcaption>
+		</figure>
 			  <tr>
 				<td style="text-align: center;">
 				  <img src="S2P6-3-cube.png" width="400px"/>
