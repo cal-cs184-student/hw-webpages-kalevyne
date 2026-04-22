@@ -74,7 +74,38 @@
 		</div>
 
 		<h2>Part 2: Simulation via numerical integration</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		In this part, the cloth simulation was implemented using Verlet integration to compute mass positions after time steps dt. Various parameters including the density of the cloth, the spring constant between the point masses, and the damping value. 
+		<br><br>
+		The spring constant, ks, and the density of the cloth are closely related. As the spring constant increases, the springs become tighter, resulting in a more taut and stiff cloth. A lower spring constant means looser connections between the masses, resulting in a more saggy cloth. 
+		Conversely, a lower density results in less mass, and therefore less acceleration due to gravity. A less dense cloth is lighter and does not sag, while a more dense cloth is heavier, experiencing more acceleration due to gravity, and crinkles more. 
+		<br><br>
+		The damping value causes the point masses to move slower at each time step, simulating energy lost in the cloth due to non-conservative forces such as friction. A larger damping value corresponds to greater loss in energy, resulting in slower movement in the cloth, while a smaller value corresponds to a frictionless environment. 
+		<br><br>
+		Below are images of the equilibrated cloth with different ks, density, and damping values. Note the damping value only impacts the speed of movement, but not the final state. 
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="2-2_d15ks5000damp20.png" width="400px"/>
+				  <figcaption>Default parameters: density = 15 g/cm^2, ks = 5000</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="2-2_d150ks50000damp20.png" width="400px"/>
+				  <figcaption>Proportional parameters: density = 150 g/cm^2, ks = 50000</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="2-2_d3-5ks5000damp20.png" width="400px"/>
+				  <figcaption>Decreased density: density = 3.5 g/cm^2, ks = 5000</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="2-2_d15ks50damp20.png" width="400px"/>
+				  <figcaption>Decreased ks: density = 15 g/cm^2, ks = 50, damping value = 20</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 
 		<h2>Part 3: Handling collisions with other objects</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
