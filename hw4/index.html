@@ -143,8 +143,58 @@
 
 
 		<h2>Part 4: Handling self-collisions</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+		Prior to this part, the grid of point masses was only constrained by each local mass's springs. This part implements self-collisions between point masses using spatial hashing. Rather than checking each point's relation to every other point mass, a hash table is used to determine local point masses to check while ignoring the rest. 
+		<br><br>
+		To do this, the volume containing the cloth is partitioned into 3D boxes and every point mass is mapped to one of these boxes. Iterating through only the local box each point mass is contained in is effective and far more efficient than iterating through every point mass. 
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="4-0.png" width="400px"/>
+				  <figcaption>Vertical cloth simulation setup</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="4-1.png" width="400px"/>
+				  <figcaption>First few folds</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="4-2.png" width="400px"/>
+				  <figcaption>Fallen fully</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="4-3.png" width="400px"/>
+				  <figcaption>At rest</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+		Adjusting the density and spring constant of the cloth also changes how it interacts with itself. Similar to interactions with objects, the ratio of density to spring constant is a reasonable predictor of similarity. With a higher ratio (increased density), the cloth prefers flatter orientations more similar to a piece of paper. With a decreased ratio (increased spring constant), the cloth easily folds in on itself. With a similar ratio (both increased spring constant and density), the cloth exhibits similar behavior. The images were captured approximately one second after the simulation began. 
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="4-low_low.png" width="400px"/>
+				  <figcaption>density = 15 g/cm^2, ks = 5000 N/m</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="4-high_low.png" width="400px"/>
+				  <figcaption>density = 150 g/cm^2, ks = 5000 N/m</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="4-low_high.png" width="400px"/>
+				  <figcaption>density = 15 g/cm^2, ks = 50000 N/m</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="4-high_high.png" width="400px"/>
+				  <figcaption>density = 150 g/cm^2, ks = 50000 N/m</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 		<h2>Part 5: Shaders</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
