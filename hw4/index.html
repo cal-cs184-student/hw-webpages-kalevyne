@@ -43,7 +43,9 @@
 		-->
 
 		<h2>Overview</h2>
-		Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
+		In this homework, I built a cloth simulation with interaction with other objects and shaders. Starting with an initial grid of masses connected by springs, I used Verlet integration to simulate external forces and natural movement of the cloth. 
+		Collisions with other objects and with itself were implemented, ensuring no tunneling through objects after each time step. Finally, numerous shaders were applied using lighting models, textures, and geometric modification. 
+		I learned a lot about how to create a simulation and I am interested because of how many different variables there are that can significantly change the outcome of the simulation. 
 
 		<h2>Part 1: Masses and springs</h2>
 		In this part, the foundation of a cloth is created, using point masses and springs that connect those point masses. To more accurately model the cloth, three constraints are considered. First, structural constraints attach springs between horizontally and vertically directly adjacent masses. Second, shearing constraints attach springs between diagonal masses. Finally, bending constraints attach springs between masses that are two masses away, horizontally and vertically. 
@@ -196,21 +198,69 @@
 			</table>
 		</div>
 		<h2>Part 5: Shaders</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Multiple shaders were implemented, including diffuse lighting, Blinn-Phong shading, texture mapping, bump and displacement mapping, and a mirror shader. Each object in the simulation is drawn by running a vertex then a fragment shader. The vertices are derived from the point masses in the cloth, and values between vertices are calculated using interpolation. The adjusted vertices and interpolated values are input into the fragment shader, which ultimately writes the output color. This allows the shaders to adjust the color of the material and the physical shape. 
+		<br><br>
+		The Blinn-Phong shading model calculates separate components of light and combines them to account for ambient, diffuse, and specular light. Ambient light is constant on every surface, diffuse is light scattered from a source, and specular creates bright reflections dependent on the viewing angle. 
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="5-1-ambient.png" width="400px"/>
+				  <figcaption>Only ambient contribution</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="5-1-diffuse.png" width="400px"/>
+				  <figcaption>Only diffuse contribution</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="5-1-diffuse.png" width="400px"/>
+				  <figcaption>Only specular contribution</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="5-1-all.png" width="400px"/>
+				  <figcaption>All contributions</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+		Below is the sphere simulation with an image of me as the texture. 
+		<figure>
+			<img src="5-2-texture.png" alt="Teapot" style="width:50%"/>
+			<figcaption>Texture mapping with a custom image</figcaption>
+		</figure>
+		Using this texture, bump mapping artifically adjusts the normals of vertices resulting in perceived surface detail. Displacement mapping takes the normals and adjusts their height, resulting in a physically adjusted cloth. Increasing the coarseness of the sphere results in smoother edges of the sphere, as shown by the texture mapping on the sphere. 
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="5-3-bump.png" width="400px"/>
+				  <figcaption>Bump Mapping</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="5-1-diffuse.png" width="400px"/>
+				  <figcaption>Displacement Mapping</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="5-4-16.png" width="400px"/>
+				  <figcaption>More coarse sphere</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="5-4-128.png" width="400px"/>
+				  <figcaption>More fine sphere</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+		Finally, the mirror shader replaces the colors on the objects with the environment reflections coming from a cube that encloses the camera. 
+		<figure>
+			<img src="5-5-cloth.png" alt="Teapot" style="width:50%"/>
+			<figcaption>Mirror Shader</figcaption>
+		</figure>
 
-		<h2>(Optional) Part 6: Extra Credit - Additional cloth simulation features!</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		
-		<h2>Additional Notes (please remove)</h2>
-		<ul>
-			<li>You can also add code if you'd like as so: <code>code code code</code></li>
-			<li>If you'd like to add math equations, 
-				<ul>
-					<li>You can write inline equations like so: \( a^2 + b^2 = c^2 \)</li>
-					<li>You can write display equations like so: \[ a^2 + b^2 = c^2 \]</li>
-				</ul>
-			</li>
-		</ul>
 		</div>
 	</body>
 </html>
